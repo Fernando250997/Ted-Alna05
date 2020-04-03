@@ -1,0 +1,52 @@
+package app;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+import entidades.Entcalc;
+import entidades.Entconta;
+
+public class Aplicacao {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("---Bem-vindo ao seu banco---");
+		System.out.println("----------------------------");
+		
+		List<Entconta> list = new ArrayList<>();
+		try {
+		System.out.print("Numero de contas as registra? ");
+
+		int n = sc.nextInt();
+
+		for (int i = 1; i <= n; i++) {
+			System.out.println("Conta #" + i + ": ");
+			System.out.print("Senha da Conta: ");
+			int numero = sc.nextInt();
+			System.out.print("Nome: ");
+			sc.nextLine();
+			String nome = sc.nextLine();
+			System.out.print("Saldo Atual é: ");
+			double saldo = sc.nextDouble();
+			list.add(new Entconta(numero, nome, saldo));
+
+		}
+			System.out.println("Lista de Contas:");
+			Collections.sort(list);
+			for (Entconta obj : list) {
+			System.out.println(obj);
+		}
+		Entconta x = Entcalc.maxx(list);
+		System.out.println("Conta com maior valor: ");
+		System.out.println(x);
+	
+		}catch(RuntimeException e){
+			System.out.println("Erro!");
+			
+		}
+		sc.close();
+	}
+
+}
