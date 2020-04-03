@@ -1,0 +1,49 @@
+package entidades;
+
+
+public class Entconta implements Comparable <Entconta> {
+	
+	private int numero;
+	private String nome;
+	private Double valor;
+	
+	public Entconta() {	
+	}
+	public Entconta(int numero, String nome, double valor) {
+		this.numero = numero;
+		this.nome = nome;
+		this.valor = valor;
+	}
+	
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public double getSaldo() {
+		return valor;
+	}
+	public void setSaldo(double valor) {
+		this.valor = valor;
+	}
+ 
+	public String toString() {
+		return " N° da Conta "
+				+ numero
+				+ ", Nome do Titular: "
+				+ nome
+				+ ", Saldo: $ "
+				+ String.format("%.2f", valor);
+	}
+
+	public int compareTo(Entconta outra) {
+		return valor.compareTo(outra.getSaldo());
+	}
+	
+	
+
+}
