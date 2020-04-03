@@ -1,0 +1,17 @@
+package entidades;
+
+import java.util.List;
+
+public class Entcalc {
+	
+	public static <V extends Comparable<? super V>> V maxx(List<V> list) {
+			V maxx = list.get(0);
+				for (V item : list) {
+						if (item.compareTo(maxx) > 0) {
+							maxx = item;
+			}
+		}
+		return maxx;
+	}
+
+}
